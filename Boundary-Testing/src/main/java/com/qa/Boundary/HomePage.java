@@ -158,5 +158,23 @@ public class HomePage {
 	public WebElement testMonth13() {
 		return month13;
 	}
+	
+	
+	
+	@FindBy(xpath = "//*[contains(text(), 'Hour smaller than minimum value: -1')]")
+	WebElement miniHr;
+	
+	public WebElement testMiniHr() {
+		return miniHr;
+	}
+	
+	
+	
+	@FindBy(xpath = "//*[contains(text(), 'Minimum invalid value for minutes: -1')]")
+	WebElement miniMins;
+	
+	public WebElement testMiniMins() {
+		return miniMins;
+	}
 
 }

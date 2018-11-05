@@ -117,9 +117,9 @@ public class Testing {
 		homePage.enterText("26/03/2017 02:00");
 		Thread.sleep(1000);
 		homePage.clickSubmit();
-		
 		String expected = "March daylight saving time lowest invalid hour 02:00";
 		String actual = homePage.testLowMarch().getText();
+		System.out.println(actual);
 		
 		
 		assertEquals(expected, actual);
@@ -219,6 +219,34 @@ public class Testing {
 		
 		String expected = "Higher limit for the month 13";
 		String actual = homePage.testMonth13().getText();
+		
+		assertEquals(expected, actual);
+		Thread.sleep(1000);
+		}
+	
+	@Test
+	public void hour_smaller_than_minimum_value() throws InterruptedException {
+
+		homePage.enterText("31/12/2017 -1:59");
+		Thread.sleep(1000);
+		homePage.clickSubmit();
+		
+		String expected = "Hour smaller than minimum value: -1";
+		String actual = homePage.testMiniHr().getText();
+		
+		assertEquals(expected, actual);
+		Thread.sleep(1000);
+		}
+	
+	@Test
+	public void minimum_invalid_value_for_minutes() throws InterruptedException {
+
+		homePage.enterText("01/01/2017 00:-1");
+		Thread.sleep(1000);
+		homePage.clickSubmit();
+		
+		String expected = "Minimum invalid value for minutes: -1";
+		String actual = homePage.testMiniMins().getText();
 		
 		assertEquals(expected, actual);
 		Thread.sleep(1000);
